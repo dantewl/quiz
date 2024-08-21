@@ -9,19 +9,58 @@ st.write("3 - Difícil")
 x = "Você acertou! Parabéns!"
 y = "Você errou! Tente novamente"
 escolha = st.text_input('1 / 2 / 3')
+z = "Digite sua resposta aqui: "
+
+if 'pergunta_atual' not in st.session_state:
+    st.session_state.pergunta_atual = 1
 
 st.write(escolha)
+    
+    # ----------------------------------------------------------------------------------
+
 if escolha == '1':
     st.write("Você escolheu o nível fácil!")
-    st.write("Primeira pergunta: Qual a capital da Alemanha?")
-    resposta_usuario = st.text_input("Digite sua resposta aqui: ")
+    if st.session_state.pergunta_atual == 1:
+        st.write("Primeira pergunta: Qual a capital da Alemanha?")
+        resposta_usuario = st.text_input(z)
     
-    if resposta_usuario:
-        if resposta_usuario.lower() == "berlim":
-            st.write(x)
-        else:
-            st.write(y)
+        if resposta_usuario:
+            if resposta_usuario.lower() == "berlim":
+                st.write(x)
+                st.session_state.pergunta_atual += 1
+            else:
+                st.write(y)
+    
+    # ----------------------------------------------------------------------------------
+    
+    if st.session_state.pergunta_atual == 2:
+        st.write("Próxima pergunta!")
+        st.write("Segunda pergunta: Qual o símbolo do elemento ferro?")
+        resposta_usuario = st.text_input(z, key ="pergunta2")
+        
+        if resposta_usuario:
+            if resposta_usuario.lower() == "fe":
+                st.write(x)
+                st.session_state.pergunta_atual += 1
+            else:
+                st.write(y) 
+    
+    # ----------------------------------------------------------------------------------
+    
+    if st.session_state.pergunta_atual == 3:
+        st.write("Próxima pergunta!")
+        st.write("Terceira pergunta: Qual animal é considerado o 'Rei da selva?' ")
+        resposta_usuario = st.text_input(z, key="pergunta3") 
 
+        if resposta_usuario:
+            if resposta_usuario.lower() in ["leão", "leao"]:                           
+                st.write(x)
+                st.write("Você completou o quiz! Tente nas outras dificuldades!")
+                st.session_state.pergunta_atual += 1
+            else: 
+                st.write(y)
+         
+    # ----------------------------------------------------------------------------------
 if escolha == '2':
     st.write("Você escolheu o nível médio!")
     st.write("Primeira pergunta: Em que ano ocorreu o atentado terrorista as Torres Gemêas?")
