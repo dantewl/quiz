@@ -63,6 +63,7 @@ if escolha == '1':
     # ----------------------------------------------------------------------------------
 if escolha == '2':
     st.write("Você escolheu o nível médio!")
+    if st.session_state.pergunta_atual == 1:
     st.write("Primeira pergunta: Em que ano ocorreu o atentado terrorista as Torres Gemêas?")
     resposta_usuario2 = st.text_input("Digite sua resposta aqui: ")
 
@@ -71,7 +72,18 @@ if escolha == '2':
             st.write(x)
         else:
             st.write(y)
+    if st.session_state.pergunta_atual == 2:
+        st.write("Próxima pergunta!")
+        st.write("Segunda pergunta: ")
+        resposta_usuario2 = st.text_input(z, key ="pergunta2")
+        if resposta_usuario2.lower() == '2'
+            st.write(x)
+        else:
+            st.write(y)
+        st.session_state.pergunta_atual += 1
 
+
+    # ----------------------------------------------------------------------------------
 if escolha == '3':
     st.write("Você escolheu o nível dificíl!")
     st.write("Primeira pergunta: Quantos presidentes da republica o Brasil já teve?")
