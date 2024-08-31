@@ -63,13 +63,37 @@ if escolha == '1':
     # ----------------------------------------------------------------------------------
 if escolha == '2':
     st.write("Você escolheu o nível médio!")
-    st.write("Primeira pergunta: Em que ano ocorreu o atentado terrorista as Torres Gemêas?")
-    resposta_usuario2 = st.text_input("Digite sua resposta aqui: ")
+    if st.session_state.pergunta_atual == 1: 
+        st.write("Primeira pergunta: Em que ano ocorreu o atentado terrorista as Torres Gemêas?")
+        resposta_usuario2 = st.text_input("Digite sua resposta aqui: ")
 
-    if resposta_usuario2:
-        if resposta_usuario2.lower() == "2001":
-            st.write(x)
+        if resposta_usuario2:
+            if resposta_usuario2.lower() == "2001":
+                st.write(x)
         else:
+            st.write(y)
+
+    if st.session_state.pergunta_atual == 2:
+        st.write("Próxima pergunta!")
+        st.write("Segunda pergunta: Quantos ossos possue um ser humano adulto?")
+        resposta_usuario = st.text_input(z, key="pergunta2")
+
+        if resposta_usuario:
+            if resposta_usuario.lower() == "206":
+                st.write(x)
+            else: 
+                st.write(y)
+    
+    if st.session_state.perugnta_atual == 3:
+        st.write("Próxima pergunta!")
+        st.write("Terceira pergunta: Quem escreveu o livro 'Dom quixote'?")
+        resposta_usuario = st.text_input(z, key="pergunta3")
+
+        if resposta_usuario:
+            resposta_usuario.lower() = "william shakespare"
+            st.write(x)
+            st.write("Você completou o quiz! Tente nas outras dificuldades!")
+        else: 
             st.write(y)
 
     # ----------------------------------------------------------------------------------
