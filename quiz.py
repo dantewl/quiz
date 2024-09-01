@@ -65,44 +65,77 @@ if escolha == '2':
     st.write("Você escolheu o nível médio!")
     if st.session_state.pergunta_atual == 1: 
         st.write("Primeira pergunta: Em que ano ocorreu o atentado terrorista as Torres Gemêas?")
-        resposta_usuario2 = st.text_input("Digite sua resposta aqui: ")
+        resposta_usuario2 = st.text_input(z) 
 
         if resposta_usuario2:
             if resposta_usuario2.lower() == "2001":
                 st.write(x)
-        else:
-            st.write(y)
+                st.session_state.pergunta_atual += 1
+            else:
+                st.write(y)
 
     if st.session_state.pergunta_atual == 2:
         st.write("Próxima pergunta!")
         st.write("Segunda pergunta: Quantos ossos possue um ser humano adulto?")
-        resposta_usuario = st.text_input(z, key="pergunta2")
+        resposta_usuario2 = st.text_input(z, key="pergunta2")
 
-        if resposta_usuario:
-            if resposta_usuario.lower() == "206":
+        if resposta_usuario2:
+            if resposta_usuario2.lower() == "206":
                 st.write(x)
+                st.session_state.pergunta_atual += 1
             else: 
                 st.write(y)
     
-    if st.session_state.perugnta_atual == 3:
+    if st.session_state.pergunta_atual == 3:
         st.write("Próxima pergunta!")
         st.write("Terceira pergunta: Quem escreveu o livro 'Dom quixote'?")
-        resposta_usuario = st.text_input(z, key="pergunta3")
+        resposta_usuario2 = st.text_input(z, key="pergunta3")
 
-        if resposta_usuario:
-            resposta_usuario.lower() = "william shakespare"
-            st.write(x)
-            st.write("Você completou o quiz! Tente nas outras dificuldades!")
-        else: 
-            st.write(y)
+        if resposta_usuario2:
+            if resposta_usuario2.lower() == "william shakespare":
+                st.write(x)
+                st.write("Você completou o quiz! Tente nas outras dificuldades!")
+                st.session_state.pergunta_atual += 1
+            else: 
+                st.write(y)
 
     # ----------------------------------------------------------------------------------
 if escolha == '3':
     st.write("Você escolheu o nível dificíl!")
-    st.write("Primeira pergunta: Quantos presidentes da republica o Brasil já teve?")
-    resposta_usuario3 = st.text_input("Digite sua resposta aqui: ")
+    if st.session_state.pergunta_atual == 1:
+        st.write("Primeira pergunta: Quantos presidentes da republica o Brasil já teve?")
+        resposta_usuario3 = st.text_input(z)
 
-    if resposta_usuario3:
-        if resposta_usuario3.lower() == "39":
-            st.write(x)
-        else: st.write(y)
+        if resposta_usuario3:
+            if resposta_usuario3.lower() == "39":
+                st.write(x)
+                st.session_state.pergunta_atual += 1
+            else: 
+                st.write(y)
+    
+    if st.session_state.pergunta_atual == 2:
+        st.write("Próxima pergunta!")
+        st.write("Segunda pergunta: Qual foi o filosófo conhecido como 'O Cínico'?")    
+        resposta_usuario3 = st.text_input(z, key="pergunta2")
+        
+        if resposta_usuario3:
+            if resposta_usuario3.lower() in ["diógenes", "diogenes"]:
+                st.write(x)
+                st.session_state.pergunta_atual += 1
+            else:
+                st.write(y)
+    
+    if st.session_state.pergunta_atual == 3:
+        st.write("Próxima pergunta!")
+        st.write("Quem foi a primeira mulher a ganhar um prêmio Nobel?")
+        resposta_usuario3 = st.text_input(z, key="pergunta3")
+
+        if resposta_usuario3:
+            if resposta_usuario3.lower() == "marie curie":
+                st.write(x)
+                st.write("Você completou o quiz! Tente nas outras dificuldades!")
+                st.session_state.pergunta_atual += 1 
+            else: 
+                st.write(y)
+        
+        
