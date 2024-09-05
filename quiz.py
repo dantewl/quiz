@@ -5,7 +5,7 @@ st.write("1 - Fácil")
 st.write("2 - Médio")
 st.write("3 - Difícil")
 
-#variaveis
+#? comentario foda
 x = "Você acertou! Parabéns!"
 y = "Você errou! Tente novamente"
 escolha = st.text_input('1 / 2 / 3')
@@ -16,7 +16,7 @@ if 'pergunta_atual' not in st.session_state:
 
 st.write(escolha)
     
-    # ----------------------------------------------------------------------------------
+#? ----------------------------------------------------------------------------------
 
 if escolha == '1':
     st.write("Você escolheu o nível fácil!")
@@ -31,8 +31,6 @@ if escolha == '1':
             else:
                 st.write(y)
     
-    # ----------------------------------------------------------------------------------
-    
     if st.session_state.pergunta_atual == 2:
         st.write("Próxima pergunta!")
         st.write("Segunda pergunta: Qual o símbolo do elemento ferro?")
@@ -44,8 +42,6 @@ if escolha == '1':
                 st.session_state.pergunta_atual += 1
             else:
                 st.write(y) 
-    
-    # ----------------------------------------------------------------------------------
     
     if st.session_state.pergunta_atual == 3:
         st.write("Próxima pergunta!")
@@ -60,7 +56,8 @@ if escolha == '1':
             else: 
                 st.write(y)
          
-    # ----------------------------------------------------------------------------------
+#? ----------------------------------------------------------------------------------
+
 if escolha == '2':
     st.write("Você escolheu o nível médio!")
     if st.session_state.pergunta_atual == 1: 
@@ -92,14 +89,15 @@ if escolha == '2':
         resposta_usuario2 = st.text_input(z, key="pergunta3")
 
         if resposta_usuario2:
-            if resposta_usuario2.lower() == "william shakespare":
+            if resposta_usuario2.lower() == "miguel de cervantes":
                 st.write(x)
                 st.write("Você completou o quiz! Tente nas outras dificuldades!")
                 st.session_state.pergunta_atual += 1
             else: 
                 st.write(y)
 
-    # ----------------------------------------------------------------------------------
+#? ----------------------------------------------------------------------------------
+
 if escolha == '3':
     st.write("Você escolheu o nível dificíl!")
     if st.session_state.pergunta_atual == 1:
